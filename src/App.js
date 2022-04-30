@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import Movie from './components/Movie'
+import Footer from './components/Footer'
+
+import {useState, useEffect} from 'react'
+
+import {MoviesContext} from './Helper/MoviesContext'
 
 function App() {
+  const [movies, setMovies] = useState([])
+  useEffect(() => {
+    fetch('https://api.themoviedb.org/3/trending/all/day?api_key=7554e7200e9e434cd4be7cfb9cee0bc1')
+      .then(res => res.json())
+      .then(data => setMovies(data.results))
+  }, [])
+  const movieEl = movies.map(movie => (
+    <Movie img={movie.poster_path}
+           title={movie.title || movie.name}
+           vote_average={movie.vote_average}
+           overview={movie.overview}
+           key={movie.id}
+    />
+  ))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MoviesContext.Provider value={{setMovies}}>
+        <Header />
+      </MoviesContext.Provider>
+      <div className="movies">
+        {movieEl}
+      </div>
+      <Footer />
     </div>
   );
 }

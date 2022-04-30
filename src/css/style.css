@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  position: relative; }
+
+img {
+  width: 100%; }
+
+a {
+  text-decoration: none;
+  color: #000; }
+
+input {
+  outline: 0;
+  border: 0; }
+
+header {
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 680px) {
+    header {
+      flex-direction: column;
+      height: 10rem;
+      justify-content: center;
+      gap: .5rem; } }
+  header .logo {
+    width: 5rem; }
+
+.search {
+  width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  @media (max-width: 680px) {
+    .search {
+      justify-content: center;
+      width: 80%; } }
+  .search__input {
+    background: rgba(128, 128, 128, 0.158);
+    font-size: 1.5rem;
+    padding: .5rem 1.5rem;
+    border-radius: 100px;
+    margin-right: -2.4rem;
+    width: 90%;
+    transition: width .2s ease-in-out; }
+    .search__input:focus {
+      width: 100%; }
+
+.icon--search {
+  font-size: 1.5rem; }
+
+.icon--github {
+  font-size: 1.5rem;
+  transition: transform .3s ease-in-out;
+  font-size: 3rem; }
+  .icon--github:hover {
+    transform: scale(1.3); }
+
+.movies {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; }
+  .movies .movie {
+    width: 20rem;
+    box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; }
+    .movies .movie__details {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem .7rem;
+      align-items: center; }
+    .movies .movie__badge {
+      background: rgba(0, 0, 0, 0.164);
+      color: #fff;
+      font-size: 1.3rem;
+      padding: .1rem .3rem; }
+    .movies .movie__overview {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 1.5rem;
+      background: #fff;
+      transform: translateY(100%);
+      transition: transform .3s ease-in-out;
+      overflow: scroll; }
+    .movies .movie:hover .movie__overview {
+      transform: translateY(0); }
+  @media (max-width: 680px) {
+    .movies {
+      justify-content: center; } }
+
+footer {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem;
+  position: absolute;
+  bottom: -4rem;
+  right: 0;
+  left: 0; }
